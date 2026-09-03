@@ -1,0 +1,18 @@
+workflows:
+  ios-workflow:
+    name: iOS Build
+    instance_type: mac_mini_m1
+    environment:
+      node: latest
+      xcode: latest
+    scripts:
+      - name: Install Dependencies
+        script: npm install
+      - name: Build Web App
+        script: npm run build
+      - name: Sync Capacitor iOS
+        script: npx cap sync ios
+      - name: Build iOS
+        script: |
+          cd ios/App
+          xcodebuild build -workspace App.xcworkspace -scheme App -destination generic/platform=iOS CODE_SIGNING_ALLOWED=NO
