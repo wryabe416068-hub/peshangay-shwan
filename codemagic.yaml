@@ -8,8 +8,9 @@ workflows:
     scripts:
       - name: Install Dependencies
         script: npm install
-      - name: Add & Sync iOS
+      - name: Force Re-create iOS Platform
         script: |
+          rm -rf ios
           npx cap add ios
           npx cap sync ios
       - name: Build iOS Project
