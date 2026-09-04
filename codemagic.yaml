@@ -6,14 +6,12 @@ workflows:
       node: latest
       xcode: latest
     scripts:
-      - name: Install Ionic & Capacitor CLI
-        script: npm install -g @ionic/cli @capacitor/cli
       - name: Install Dependencies
         script: npm install
-      - name: Add & Sync iOS
-        script: |
-          npx cap add ios || true
-          npx cap sync ios
+      - name: Build Web Project
+        script: npx vite build  npm run build  true
+      - name: Sync Capacitor iOS
+        script: npx cap sync ios
       - name: Build iOS Project
         script: |
           cd ios/App
