@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Peshangay Shwan</string>
+    <string name="title_activity_main">Peshangay Shwan</string>
+    <string name="package_name">com.shwan.store</string>
+    <string name="custom_url_scheme">com.shwan.store</string>
+</resources>

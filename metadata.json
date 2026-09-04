@@ -1,0 +1,6 @@
+{
+  "name": "Peshangay Shwan",
+  "description": "پێشەنگای شوان - بازاڕی ئۆنلاین بۆ نمایش و فرۆشتنی کاڵاکان لە سەرتاسەری کوردستان بە بێ بەرامبەر و بە یەک لینک",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
