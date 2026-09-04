@@ -8,9 +8,9 @@ workflows:
     scripts:
       - name: Install Dependencies
         script: npm install
-      - name: Sync & Prepare Capacitor iOS
+      - name: Add & Sync iOS
         script: |
-          npx cap add ios || true
+          npx cap add ios
           npx cap sync ios
       - name: Build iOS Project
         script: |
