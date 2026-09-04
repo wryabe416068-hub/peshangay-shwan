@@ -3,13 +3,8 @@ workflows:
     name: iOS Build
     instance_type: mac_mini_m1
     environment:
-      node: latest
       xcode: latest
     scripts:
-      - name: Install Dependencies
-        script: npm install
-      - name: Sync Capacitor iOS
-        script: npx cap sync ios
       - name: Build iOS
         script: |
           cd ios/App
