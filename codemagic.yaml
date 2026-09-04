@@ -6,12 +6,15 @@ workflows:
       node: latest
       xcode: latest
     scripts:
-      - name: Install Dependencies & Add iOS
+      - name: Install Ionic & Capacitor CLI
+        script: npm install -g @ionic/cli @capacitor/cli
+      - name: Install Dependencies
+        script: npm install
+      - name: Add & Sync iOS
         script: |
-          npm install
           npx cap add ios || true
           npx cap sync ios
-      - name: Build iOS
+      - name: Build iOS Project
         script: |
           cd ios/App
           xcodebuild build -workspace App.xcworkspace -scheme App -destination generic/platform=iOS CODE_SIGNING_ALLOWED=NO
