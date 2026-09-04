@@ -2,22 +2,21 @@ workflows:
   ios-workflow:
     name: iOS Build
     instance_type: mac_mini_m1
-
     environment:
       node: latest
       xcode: latest
-
     scripts:
       - name: Install Dependencies
         script: npm install
-
       - name: Force Re-create iOS Platform
         script: |
           rm -rf ios
           npx cap add ios --packagemanager CocoaPods
           npx cap sync ios
-
       - name: Build iOS Project
         script: |
           cd ios/App
-          xcodebuild build -workspace App.xcworkspace -scheme App -destination generic/platform=iOS CODE_SIGNING_ALLOWED=NO
+          xcodebuild build -workspace App.xcworkspace -scheme App -destination generic/platform=iOS CODE_SIGNING_ALLOWED=NO -derivedDataPath build
+    artifacts:
+      - ios/App/build/Build/Products/Release-iphoneos/*.app
+      - ios/App/build/Build/Products/Debug-iphoneos/*.app
