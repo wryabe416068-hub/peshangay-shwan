@@ -2,16 +2,21 @@ workflows:
   ios-workflow:
     name: iOS Build
     instance_type: mac_mini_m1
+
     environment:
       node: latest
       xcode: latest
+
     scripts:
       - name: Install Dependencies
         script: npm install
+
       - name: Force Re-create iOS Platform
         script: |
           rm -rf ios
-npx cap add ios --packagemanager CocoaPods          npx cap sync ios
+          npx cap add ios --packagemanager CocoaPods
+          npx cap sync ios
+
       - name: Build iOS Project
         script: |
           cd ios/App
